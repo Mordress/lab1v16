@@ -79,8 +79,8 @@ public class DepositManager {
     }
 
     public void printAvailableDeposits() {
-        if (availableDeposits != null) {
-            System.out.println("For " + this.client + " available deposits:");
+        System.out.println("For " + this.client + " available deposits:");
+        if (!availableDeposits.isEmpty()) {
             for (Deposit iter : availableDeposits) {
                 System.out.println(iter);
             }
@@ -90,13 +90,13 @@ public class DepositManager {
     }
 
     public void printOptimalDeposits() {
-        if (optimalDeposits != null) {
-            System.out.println("For " + this.client + " optimal deposits (descending):");
+        System.out.println("For " + this.client + " optimal deposits (descending):");
+        if (!optimalDeposits.isEmpty()) {
             for (Deposit iter : optimalDeposits) {
                 System.out.println(iter);
             }
         } else {
-            System.out.println("Sorry, we have not available deposits for ");
+            System.out.println("Sorry, we have not available deposits for this client");
         }
     }
 
