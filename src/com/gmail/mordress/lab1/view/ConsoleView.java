@@ -10,11 +10,11 @@ import java.util.*;
 
 public class ConsoleView {
 
-    static List<Deposit> allDeposits;
-
     public static void main(String[] args) {
 
-        //create and show all deposits
+
+
+        /*//create and show all deposits
         allDeposits = createAllDeposits();
         System.out.println(Arrays.asList(allDeposits));
 
@@ -24,10 +24,10 @@ public class ConsoleView {
         Client client1 = new Client("Alex", "Brown", 120, 1800);
         System.out.println("For client " + client1.getFirstName() + " " + client1.getLastName() + " optimal deposits:");
         System.out.println(Arrays.asList(client1.getOptimalAvailibleDeposits(allDeposits)));
-
+*/
     }
 
-    public static LinkedList<Deposit> createAllDeposits() {
+   /* public static LinkedList<Deposit> createAllDeposits() {
         LinkedList<Deposit> deposits = new LinkedList<Deposit>();
 
         Deposit deposit1 = new ImmutableDeposit("Basic", 12, 1000, 180, Bank.ALPHA_BANK);
@@ -53,7 +53,7 @@ public class ConsoleView {
         deposits.add(deposit9);
 
         return deposits;
-    }
+    }*/
 
 
 }
