@@ -12,7 +12,7 @@ public class DepositManager {
 
     private static List<Deposit> allDeposits;
 
-    private List<Deposit> availibleDeposits;
+    private List<Deposit> availableDeposits;
 
     private List<Deposit> optimalDeposits;
 
@@ -20,13 +20,14 @@ public class DepositManager {
 
     public DepositManager(Client client) {
         this.client = client;
+        availableDeposits = new LinkedList<>();
         for (Deposit iter : allDeposits) {
             if (this.client.getMoney() >= iter.getMinSum() && this.client.getMaxDuration() >= iter.getDuration()) {
-                this.availibleDeposits.add(iter);
+                this.availableDeposits.add(iter);
             }
         }
-        if (availibleDeposits != null) {
-            optimalDeposits.addAll(availibleDeposits);
+        if (availableDeposits != null) {
+            optimalDeposits = new LinkedList<>(availableDeposits);
             Collections.sort(optimalDeposits);
             Collections.reverse(optimalDeposits);
         }
@@ -40,12 +41,12 @@ public class DepositManager {
         DepositManager.allDeposits = allDeposits;
     }
 
-    public List<Deposit> getAvailibleDeposits() {
-        return availibleDeposits;
+    public List<Deposit> getAvailableDeposits() {
+        return availableDeposits;
     }
 
-    public void setAvailibleDeposits(List<Deposit> availibleDeposits) {
-        this.availibleDeposits = availibleDeposits;
+    public void setAvailableDeposits(List<Deposit> availableDeposits) {
+        this.availableDeposits = availableDeposits;
     }
 
     public Client getClient() {
@@ -74,11 +75,13 @@ public class DepositManager {
         }
     }
 
-    public void printAvailibleDeposits() {
-        if (availibleDeposits != null) {
-            for (Deposit iter : availibleDeposits) {
+    public void printAvailableDeposits() {
+        if (availableDeposits != null) {
+            for (Deposit iter : availableDeposits) {
                 System.out.println(iter);
             }
+        } else {
+            System.out.println("Sorry, we have not available deposits for " + this.client.getFirstName());
         }
     }
 
@@ -87,6 +90,8 @@ public class DepositManager {
             for (Deposit iter : optimalDeposits) {
                 System.out.println(iter);
             }
+        } else {
+            System.out.println("Sorry, we have not available deposits for " + this.client.getFirstName());
         }
     }
 
