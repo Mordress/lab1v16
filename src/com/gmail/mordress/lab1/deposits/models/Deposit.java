@@ -50,7 +50,7 @@ public abstract class Deposit implements Comparable<Deposit>{
 
     @Override
     public String toString() {
-        return new StringBuilder("\n").append("DEPOSIT NAME: ").append(getName())
+        return new StringBuilder("DEPOSIT NAME: ").append(getName())
                                 .append("\n\t").append("RATE: ").append(getRate()).append("%")
                                 .append("\n\t").append("MINIMAL SUMM: ").append(getMinSum()).append("$")
                                 .append("\n\t").append("DURATION: ").append(getDuration()).append(" DAYS")

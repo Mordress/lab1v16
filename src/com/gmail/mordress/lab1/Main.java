@@ -15,11 +15,9 @@ public class Main {
         DepositManager depositManager = new DepositManager(client1);
         depositManager.printOptimalDeposits();
 
-        Client client2 = new Client("Bill", "Gates", 120, 1000);
+        Client client2 = new Client("Bill", "Gates", 120, 1500);
         DepositManager depositManager2 = new DepositManager(client2);
         depositManager2.printOptimalDeposits();
-
-
 
     }
 
