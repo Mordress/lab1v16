@@ -14,12 +14,20 @@ public class MutableDeposit extends Deposit {
         this.maxSummToTakePerMonth = maxSummToTakePerMonth;
     }
 
+    public Integer getMinDurationForChange() {
+        return minDurationForChange;
+    }
+
+    public Integer getMaxSummToTakePerMonth() {
+        return maxSummToTakePerMonth;
+    }
+
     @Override
     public String toString() {
-        return new StringBuilder(super.toString()).append("\n").append("\t")
+        return new StringBuilder(super.toString()).append("\n\t")
                                 .append("SUPPORT PRETERM OPERATIONS:")
-                                .append("\n").append("\t").append("MINIMAL PERIOD BEFORE CHANGE: ").append(minDurationForChange).append(" DAYS")
-                                .append("\n").append("\t").append("MAX SUMM TO TAKE PER MONTH: ").append(maxSummToTakePerMonth).append(" $")
+                                .append("\n\t").append("MINIMAL PERIOD BEFORE CHANGE: ").append(getMinDurationForChange()).append(" DAYS")
+                                .append("\n\t").append("MAX SUMM TO TAKE PER MONTH: ").append(getMaxSummToTakePerMonth()).append(" $")
                                 .toString();
     }
 }

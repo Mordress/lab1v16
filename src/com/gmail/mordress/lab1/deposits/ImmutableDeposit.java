@@ -11,8 +11,7 @@ public class ImmutableDeposit extends Deposit {
     @Override
     public String toString() {
         return new StringBuilder(super.toString())
-        						.append("\n")
-        						.append("\t")
+        						.append("\n\t")
         						.append("NOT SUPPORT PRETERM OPERATIONS")
         						.toString();
     }

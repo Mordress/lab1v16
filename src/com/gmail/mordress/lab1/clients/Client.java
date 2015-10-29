@@ -37,13 +37,15 @@ public class Client {
         return money;
     }
 
-    public List<Deposit> getAvailibleDeposits(List<Deposit> allDeposits) {
+    public List<Deposit> getOptimalAvailibleDeposits(List<Deposit> allDeposits) {
         List<Deposit> availibleDeposits = new LinkedList<>();
         for (Deposit deposit : allDeposits) {
             if (this.getMoney() >= deposit.getMinSum() && this.getMaxDuration() >= deposit.getDuration()) {
                 availibleDeposits.add(deposit);
             }
         }
+        Collections.sort(availibleDeposits);
+        Collections.reverse(availibleDeposits);
         return availibleDeposits;
     }
 

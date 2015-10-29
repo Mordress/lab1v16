@@ -44,19 +44,19 @@ public abstract class Deposit implements Comparable<Deposit>{
         return bank;
     }
 
-    @Override
-    public String toString() {
-        return new StringBuilder("\n").append("DEPOSIT NAME: ").append(name)
-                                .append("\n").append("\t").append("RATE: ").append(rate).append("%")
-                                .append("\n").append("\t").append("MINIMAL SUMM: ").append(minSum).append("$")
-                                .append("\n").append("\t").append("DURATION: ").append(duration).append(" DAYS")
-                                .append("\n").append("\t").append("BANK: ").append(bank)
-                                .append("\n").append("\t").append("MAX PROFIT: ").append(this.getProfit()).append("$")
-                                .toString();
-    }
-
     public Integer getProfit() {
         return this.getRate() * this.getMinSum() * this.getDuration() / DAYS_PER_YEAR / 100;
+    }
+
+    @Override
+    public String toString() {
+        return new StringBuilder("\n").append("DEPOSIT NAME: ").append(getName())
+                                .append("\n\t").append("RATE: ").append(getRate()).append("%")
+                                .append("\n\t").append("MINIMAL SUMM: ").append(getMinSum()).append("$")
+                                .append("\n\t").append("DURATION: ").append(getDuration()).append(" DAYS")
+                                .append("\n\t").append("BANK: ").append(getBank())
+                                .append("\n\t").append("DEFAULT PROFIT: ").append(this.getProfit()).append("$")
+                                .toString();
     }
 
     @Override

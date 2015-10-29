@@ -1,6 +1,7 @@
 package com.gmail.mordress.lab1.view;
 
 import com.gmail.mordress.lab1.banks.Bank;
+import com.gmail.mordress.lab1.clients.Client;
 import com.gmail.mordress.lab1.deposits.Deposit;
 import com.gmail.mordress.lab1.deposits.ImmutableDeposit;
 import com.gmail.mordress.lab1.deposits.MutableDeposit;
@@ -9,16 +10,20 @@ import java.util.*;
 
 public class ConsoleView {
 
+    static List<Deposit> allDeposits;
+
     public static void main(String[] args) {
 
-        List<Deposit> allDeposits = createAllDeposits();
-        Collections.sort(allDeposits);
-        Collections.reverse(allDeposits);
+        //create and show all deposits
+        allDeposits = createAllDeposits();
         System.out.println(Arrays.asList(allDeposits));
 
-        //Client client1 = new Client("Alex", "Brown", 90, 15000);
-        //Collections.sort(client1.getAvailibleDeposits());
-        //System.out.println(Arrays.asList(client1.getAvailibleDeposits(allDeposits)));
+        System.out.println("************************************");
+
+        //create client and show optimal deposits for his requires
+        Client client1 = new Client("Alex", "Brown", 120, 1800);
+        System.out.println("For client " + client1.getFirstName() + " " + client1.getLastName() + " optimal deposits:");
+        System.out.println(Arrays.asList(client1.getOptimalAvailibleDeposits(allDeposits)));
 
     }
 
@@ -49,4 +54,6 @@ public class ConsoleView {
 
         return deposits;
     }
+
+
 }
