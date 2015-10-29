@@ -1,4 +1,4 @@
-package com.gmail.mordress.lab1.deposits;
+package com.gmail.mordress.lab1.deposits.models;
 
 import com.gmail.mordress.lab1.banks.Bank;
 

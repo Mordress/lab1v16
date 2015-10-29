@@ -1,8 +1,11 @@
-package com.gmail.mordress.lab1.deposits;
+package com.gmail.mordress.lab1.deposits.contorllers;
 
 
 import com.gmail.mordress.lab1.banks.Bank;
 import com.gmail.mordress.lab1.clients.Client;
+import com.gmail.mordress.lab1.deposits.models.Deposit;
+import com.gmail.mordress.lab1.deposits.models.ImmutableDeposit;
+import com.gmail.mordress.lab1.deposits.models.MutableDeposit;
 
 import java.util.Collections;
 import java.util.LinkedList;
@@ -77,21 +80,23 @@ public class DepositManager {
 
     public void printAvailableDeposits() {
         if (availableDeposits != null) {
+            System.out.println("For " + this.client + " available deposits:");
             for (Deposit iter : availableDeposits) {
                 System.out.println(iter);
             }
         } else {
-            System.out.println("Sorry, we have not available deposits for " + this.client.getFirstName());
+            System.out.println("Sorry, we have not available deposits for this client");
         }
     }
 
     public void printOptimalDeposits() {
         if (optimalDeposits != null) {
+            System.out.println("For " + this.client + " optimal deposits (descending):");
             for (Deposit iter : optimalDeposits) {
                 System.out.println(iter);
             }
         } else {
-            System.out.println("Sorry, we have not available deposits for " + this.client.getFirstName());
+            System.out.println("Sorry, we have not available deposits for ");
         }
     }
 

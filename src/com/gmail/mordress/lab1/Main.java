@@ -1,9 +1,9 @@
-package com.gmail.mordress.lab1.view;
+package com.gmail.mordress.lab1;
 
 import com.gmail.mordress.lab1.clients.Client;
-import com.gmail.mordress.lab1.deposits.DepositManager;
+import com.gmail.mordress.lab1.deposits.contorllers.DepositManager;
 
-public class ConsoleView {
+public class Main {
 
     public static void main(String[] args) {
 

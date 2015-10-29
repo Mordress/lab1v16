@@ -1,9 +1,5 @@
 package com.gmail.mordress.lab1.clients;
 
-import com.gmail.mordress.lab1.deposits.Deposit;
-
-import java.util.*;
-
 public class Client {
 
     private final String firstName;
@@ -37,16 +33,8 @@ public class Client {
         return money;
     }
 
-/*    public List<Deposit> getOptimalAvailibleDeposits(List<Deposit> allDeposits) {
-        List<Deposit> availibleDeposits = new LinkedList<>();
-        for (Deposit deposit : allDeposits) {
-            if (this.getMoney() >= deposit.getMinSum() && this.getMaxDuration() >= deposit.getDuration()) {
-                availibleDeposits.add(deposit);
-            }
-        }
-        Collections.sort(availibleDeposits);
-        Collections.reverse(availibleDeposits);
-        return availibleDeposits;
-    }*/
-
+    @Override
+    public String toString() {
+        return this.getFirstName() + " " + this.getLastName();
+    }
 }
