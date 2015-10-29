@@ -4,6 +4,7 @@ package com.gmail.mordress.lab1.deposits;
 import com.gmail.mordress.lab1.banks.Bank;
 import com.gmail.mordress.lab1.clients.Client;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,12 +12,24 @@ public class DepositManager {
 
     private static List<Deposit> allDeposits;
 
-    private List<Deposit> availibleDepositsForClient;
+    private List<Deposit> availibleDeposits;
+
+    private List<Deposit> optimalDeposits;
 
     private Client client;
 
     public DepositManager(Client client) {
         this.client = client;
+        for (Deposit iter : allDeposits) {
+            if (this.client.getMoney() >= iter.getMinSum() && this.client.getMaxDuration() >= iter.getDuration()) {
+                this.availibleDeposits.add(iter);
+            }
+        }
+        if (availibleDeposits != null) {
+            optimalDeposits.addAll(availibleDeposits);
+            Collections.sort(optimalDeposits);
+            Collections.reverse(optimalDeposits);
+        }
     }
 
     public static List<Deposit> getAllDeposits() {
@@ -27,12 +40,12 @@ public class DepositManager {
         DepositManager.allDeposits = allDeposits;
     }
 
-    public List<Deposit> getAvailibleDepositsForClient() {
-        return availibleDepositsForClient;
+    public List<Deposit> getAvailibleDeposits() {
+        return availibleDeposits;
     }
 
-    public void setAvailibleDepositsForClient(List<Deposit> availibleDepositsForClient) {
-        this.availibleDepositsForClient = availibleDepositsForClient;
+    public void setAvailibleDeposits(List<Deposit> availibleDeposits) {
+        this.availibleDeposits = availibleDeposits;
     }
 
     public Client getClient() {
@@ -43,7 +56,7 @@ public class DepositManager {
         this.client = client;
     }
 
-    public void initDeposits() {
+    public static void initDeposits() {
         allDeposits = new LinkedList<>();
         allDeposits.add(new ImmutableDeposit("Basic", 12, 1000, 180, Bank.ALPHA_BANK));
         allDeposits.add(new MutableDeposit("Advanced", 6, 1800, 60, Bank.ALPHA_BANK, 20, 20));
@@ -54,6 +67,31 @@ public class DepositManager {
         allDeposits.add(new ImmutableDeposit("FastMoney", 23, 1000, 240, Bank.GAMMA_BANK));
         allDeposits.add(new MutableDeposit("Buisness", 5, 2000, 90, Bank.GAMMA_BANK, 45, 15));
     }
+
+    public static void printAllDeposits() {
+        for (Deposit iter : allDeposits) {
+            System.out.println(iter);
+        }
+    }
+
+    public void printAvailibleDeposits() {
+        if (availibleDeposits != null) {
+            for (Deposit iter : availibleDeposits) {
+                System.out.println(iter);
+            }
+        }
+    }
+
+    public void printOptimalDeposits() {
+        if (optimalDeposits != null) {
+            for (Deposit iter : optimalDeposits) {
+                System.out.println(iter);
+            }
+        }
+    }
+
+
+
 
 
 
