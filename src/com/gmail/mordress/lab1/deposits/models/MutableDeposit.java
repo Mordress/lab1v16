@@ -1,7 +1,6 @@
 package com.gmail.mordress.lab1.deposits.models;
 
 import com.gmail.mordress.lab1.banks.Bank;
-import com.gmail.mordress.lab1.deposits.models.Deposit;
 
 public class MutableDeposit extends Deposit {
 
