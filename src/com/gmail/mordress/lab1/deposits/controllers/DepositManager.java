@@ -100,6 +100,7 @@ public class DepositManager {
         } else {
             System.out.println("Sorry, we have not available deposits for this client");
         }
+        System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * *");
     }
 
     public DepositManager findDepositsByRate(Integer rate) {

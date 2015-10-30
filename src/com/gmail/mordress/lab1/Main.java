@@ -18,8 +18,6 @@ public class Main {
         DepositManager depositManager2 = new DepositManager(client2);
         depositManager2.printOptimalDeposits();
 
-        System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * *");
-
         depositManager1.findDepositsByBank(Bank.ALPHA_BANK).printFoundedDeposits();
         depositManager1.findDepositsByDuration(120).printFoundedDeposits();
         depositManager1.findDepositsByRate(10).printFoundedDeposits();
