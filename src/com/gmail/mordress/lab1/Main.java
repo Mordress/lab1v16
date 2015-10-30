@@ -2,7 +2,7 @@ package com.gmail.mordress.lab1;
 
 import com.gmail.mordress.lab1.banks.Bank;
 import com.gmail.mordress.lab1.clients.Client;
-import com.gmail.mordress.lab1.deposits.contorllers.DepositManager;
+import com.gmail.mordress.lab1.deposits.controllers.DepositManager;
 
 public class Main {
 
