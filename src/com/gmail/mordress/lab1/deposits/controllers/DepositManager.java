@@ -15,8 +15,10 @@ public class DepositManager {
 
     private static List<Deposit> allDeposits;
 
+    //List with available deposits for client
     private List<Deposit> availableDeposits;
 
+    //List with optimal deposits for client
     private List<Deposit> optimalDeposits;
 
     private List<Deposit> foundedDeposits;

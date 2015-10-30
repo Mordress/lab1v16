@@ -44,6 +44,7 @@ public abstract class Deposit implements Comparable<Deposit>{
         return bank;
     }
 
+    //theorical profit
     public Integer getProfit() {
         return this.getRate() * this.getMinSum() * this.getDuration() / DAYS_PER_YEAR / 100;
     }

@@ -4,6 +4,7 @@ import com.gmail.mordress.lab1.banks.Bank;
 
 public class MutableDeposit extends Deposit {
 
+    //Minimal period for taking part of money
     private final Integer minDurationForChange;
 
     private final Integer maxSummToTakePerMonth;

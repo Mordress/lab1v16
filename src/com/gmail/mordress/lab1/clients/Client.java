@@ -6,6 +6,7 @@ public class Client {
 
     private final String lastName;
 
+    //How many days client can keep money at bank
     private final Integer maxDuration;
 
     private Integer money;
