@@ -19,6 +19,8 @@ public class DepositManager {
 
     private List<Deposit> optimalDeposits;
 
+    private List<Deposit> foundedDeposits;
+
     private Client client;
 
     public DepositManager(Client client) {
@@ -98,6 +100,53 @@ public class DepositManager {
         } else {
             System.out.println("Sorry, we have not available deposits for this client");
         }
+    }
+
+    public DepositManager findDepositsByRate(Integer rate) {
+        foundedDeposits = new LinkedList<>();
+        for (Deposit iter : allDeposits) {
+            if (rate <= iter.getRate()) {
+                foundedDeposits.add(iter);
+            }
+        }
+        return this;
+    }
+
+    public DepositManager findDepositsByDuration(Integer duration) {
+        foundedDeposits = new LinkedList<>();
+        for (Deposit iter : availableDeposits) {
+            if (duration >= iter.getDuration()) {
+                foundedDeposits.add(iter);
+            }
+        }
+        return this;
+    }
+
+    public DepositManager findDepositsByMinimalSumm(Integer minSumm) {
+        foundedDeposits = new LinkedList<>();
+        for (Deposit iter : availableDeposits) {
+            if (minSumm >= iter.getMinSum()) {
+                foundedDeposits.add(iter);
+            }
+        }
+        return this;
+    }
+
+    public DepositManager findDepositsByBank(Bank bank) {
+        foundedDeposits = new LinkedList<>();
+        for (Deposit iter : availableDeposits) {
+            if (bank.equals(iter.getBank())) {
+                foundedDeposits.add(iter);
+            }
+        }
+        return this;
+    }
+
+    public void printFoundedDeposits() {
+        for (Deposit deposit : foundedDeposits) {
+            System.out.println(deposit);
+        }
+        System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * *");
     }
 
 
