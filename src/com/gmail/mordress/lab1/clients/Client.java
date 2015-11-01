@@ -1,5 +1,7 @@
 package com.gmail.mordress.lab1.clients;
 
+import java.math.BigDecimal;
+
 public class Client {
 
     private String firstName;
@@ -9,9 +11,9 @@ public class Client {
     //How many days client can keep money at bank
     private Integer maxDuration;
 
-    private Integer money;
+    private BigDecimal money;
 
-    public Client(String firstName, String lastName, Integer maxDuration, Integer money) {
+    public Client(String firstName, String lastName, Integer maxDuration, BigDecimal money) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.maxDuration = maxDuration;
@@ -30,11 +32,11 @@ public class Client {
         return maxDuration;
     }
 
-    public Integer getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 
-    public void setMoney(Integer money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 

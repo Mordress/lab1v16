@@ -2,9 +2,11 @@ package com.gmail.mordress.lab1.deposits.models;
 
 import com.gmail.mordress.lab1.banks.Bank;
 
+import java.math.BigDecimal;
+
 public class ImmutableDeposit extends Deposit {
 
-    public ImmutableDeposit(String name, Integer rate, Integer minSum, Integer duration, Bank bank) {
+    public ImmutableDeposit(String name, Integer rate, BigDecimal minSum, Integer duration, Bank bank) {
         super(name, rate, minSum, duration, bank);
     }
 

@@ -3,19 +3,21 @@ package com.gmail.mordress.lab1.deposits.models;
 import com.gmail.mordress.lab1.Commons;
 import com.gmail.mordress.lab1.banks.Bank;
 
+import java.math.BigDecimal;
+
 public abstract class Deposit implements Comparable<Deposit> {
 
     protected String name;
 
     protected Integer rate;
 
-    protected Integer minSum;
+    protected BigDecimal minSum;
 
     protected Integer duration;
 
     protected Bank bank;
 
-    public Deposit(String name, Integer rate, Integer minSum, Integer duration, Bank bank) {
+    public Deposit(String name, Integer rate, BigDecimal minSum, Integer duration, Bank bank) {
         this.name = name;
         this.rate = rate;
         this.minSum = minSum;
@@ -39,11 +41,11 @@ public abstract class Deposit implements Comparable<Deposit> {
         this.rate = rate;
     }
 
-    public Integer getMinSum() {
+    public BigDecimal getMinSum() {
         return minSum;
     }
 
-    public void setMinSum(Integer minSum) {
+    public void setMinSum(BigDecimal minSum) {
         this.minSum = minSum;
     }
 
@@ -64,8 +66,12 @@ public abstract class Deposit implements Comparable<Deposit> {
     }
 
     //theoritical profit
-    public Integer getProfit() {
-        return getRate() * getMinSum() * getDuration() / Commons.DAYS_PER_YEAR / Commons.PERCENTS;
+    public BigDecimal getProfit() {
+        return minSum.multiply(new BigDecimal(getRate()))
+                .multiply(new BigDecimal(getDuration()))
+                .divide(new BigDecimal(Commons.DAYS_PER_YEAR), Commons.SCALE, BigDecimal.ROUND_HALF_EVEN)
+                .divide(new BigDecimal(Commons.PERCENTS), Commons.SCALE, BigDecimal.ROUND_HALF_EVEN);
+        //return getRate() * getMinSum() * getDuration() / Commons.DAYS_PER_YEAR / Commons.PERCENTS;
     }
 
     @Override
@@ -81,7 +87,7 @@ public abstract class Deposit implements Comparable<Deposit> {
 
     @Override
     public int compareTo(Deposit o) {
-        return getProfit() - o.getProfit();
+        return getProfit().intValue() - o.getProfit().intValue();
 
     }
 

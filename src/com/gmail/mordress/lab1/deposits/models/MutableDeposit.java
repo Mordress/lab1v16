@@ -2,14 +2,16 @@ package com.gmail.mordress.lab1.deposits.models;
 
 import com.gmail.mordress.lab1.banks.Bank;
 
+import java.math.BigDecimal;
+
 public class MutableDeposit extends Deposit {
 
     //Minimal period for taking part of money
     private Integer minDurationForChange;
 
-    private Integer maxSummToTakePerMonth;
+    private BigDecimal maxSummToTakePerMonth;
 
-    public MutableDeposit(String name, Integer rate, Integer minSum, Integer duration, Bank bank, Integer minDurationForChange, Integer maxSummToTakePerMonth) {
+    public MutableDeposit(String name, Integer rate, BigDecimal minSum, Integer duration, Bank bank, Integer minDurationForChange, BigDecimal maxSummToTakePerMonth) {
         super(name, rate, minSum, duration, bank);
         this.minDurationForChange = minDurationForChange;
         this.maxSummToTakePerMonth = maxSummToTakePerMonth;
@@ -19,7 +21,7 @@ public class MutableDeposit extends Deposit {
         return minDurationForChange;
     }
 
-    public Integer getMaxSummToTakePerMonth() {
+    public BigDecimal getMaxSummToTakePerMonth() {
         return maxSummToTakePerMonth;
     }
 
@@ -27,7 +29,7 @@ public class MutableDeposit extends Deposit {
         this.minDurationForChange = minDurationForChange;
     }
 
-    public void setMaxSummToTakePerMonth(Integer maxSummToTakePerMonth) {
+    public void setMaxSummToTakePerMonth(BigDecimal maxSummToTakePerMonth) {
         this.maxSummToTakePerMonth = maxSummToTakePerMonth;
     }
 
