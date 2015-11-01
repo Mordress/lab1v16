@@ -27,11 +27,8 @@ public class DepositManager {
         allDeposits.add(new MutableDeposit("Buisness", 5, new BigDecimal(1400), 90, Bank.GAMMA_BANK, 45, new BigDecimal(25)));
     }
 
-    //List with available deposits for client
+    //List with available deposits for client sorted by profit(from max to min)
     private List<Deposit> availableDeposits;
-
-    //List with optimal deposits for client
-    //private List<Deposit> optimalDeposits;
 
     private List<Deposit> foundedDeposits;
 

@@ -65,13 +65,13 @@ public abstract class Deposit implements Comparable<Deposit> {
         this.bank = bank;
     }
 
-    //theoritical profit
+    //theoritical profit = rate * duration * 365 days
     public BigDecimal getProfit() {
         return minSum.multiply(new BigDecimal(getRate()))
                 .multiply(new BigDecimal(getDuration()))
                 .divide(new BigDecimal(Commons.DAYS_PER_YEAR), Commons.SCALE, BigDecimal.ROUND_HALF_EVEN)
                 .divide(new BigDecimal(Commons.PERCENTS), Commons.SCALE, BigDecimal.ROUND_HALF_EVEN);
-        //return getRate() * getMinSum() * getDuration() / Commons.DAYS_PER_YEAR / Commons.PERCENTS;
+
     }
 
     @Override
