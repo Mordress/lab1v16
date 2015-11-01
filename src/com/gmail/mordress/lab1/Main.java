@@ -7,7 +7,6 @@ import com.gmail.mordress.lab1.deposits.controllers.DepositManager;
 public class Main {
 
     public static void main(String[] args) {
-
         DepositManager.initDeposits();
 
         Client client1 = new Client("James", "Gosling", 180, 2000);
@@ -19,10 +18,9 @@ public class Main {
         depositManager2.printOptimalDeposits();
 
         depositManager1.findDepositsByBank(Bank.ALPHA_BANK).printFoundedDeposits();
-        depositManager1.findDepositsByDuration(120).printFoundedDeposits();
-        depositManager1.findDepositsByRate(10).printFoundedDeposits();
+        //depositManager1.findDepositsByDuration(120).printFoundedDeposits();
+        //depositManager1.findDepositsByRate(10).printFoundedDeposits();
 
     }
-
 
 }

@@ -1,19 +1,22 @@
 package com.gmail.mordress.lab1.deposits.controllers;
 
-
 import com.gmail.mordress.lab1.banks.Bank;
 import com.gmail.mordress.lab1.clients.Client;
 import com.gmail.mordress.lab1.deposits.models.Deposit;
 import com.gmail.mordress.lab1.deposits.models.ImmutableDeposit;
 import com.gmail.mordress.lab1.deposits.models.MutableDeposit;
 
+import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 public class DepositManager {
 
     private static List<Deposit> allDeposits;
+
+    static {
+        DepositManager.initDeposits();
+    }
 
     //List with available deposits for client
     private List<Deposit> availableDeposits;
@@ -27,14 +30,14 @@ public class DepositManager {
 
     public DepositManager(Client client) {
         this.client = client;
-        availableDeposits = new LinkedList<>();
+        availableDeposits = new ArrayList<>(10);
         for (Deposit iter : allDeposits) {
             if (this.client.getMoney() >= iter.getMinSum() && this.client.getMaxDuration() >= iter.getDuration()) {
                 this.availableDeposits.add(iter);
             }
         }
         if (availableDeposits != null) {
-            optimalDeposits = new LinkedList<>(availableDeposits);
+            optimalDeposits = new ArrayList<>(availableDeposits);
             Collections.sort(optimalDeposits);
             Collections.reverse(optimalDeposits);
         }
@@ -65,7 +68,7 @@ public class DepositManager {
     }
 
     public static void initDeposits() {
-        allDeposits = new LinkedList<>();
+        allDeposits = new ArrayList<>(10);
         allDeposits.add(new ImmutableDeposit("Basic", 12, 1000, 180, Bank.ALPHA_BANK));
         allDeposits.add(new MutableDeposit("Advanced", 6, 1800, 60, Bank.ALPHA_BANK, 20, 20));
         allDeposits.add(new MutableDeposit("AdvancedPlus", 5, 2000, 90, Bank.ALPHA_BANK, 30, 30));
@@ -102,11 +105,10 @@ public class DepositManager {
         } else {
             System.out.println("Sorry, we have not available deposits for this client");
         }
-        System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * *");
     }
 
     public DepositManager findDepositsByRate(Integer rate) {
-        foundedDeposits = new LinkedList<>();
+        foundedDeposits = new ArrayList<>(10);
         for (Deposit iter : allDeposits) {
             if (rate <= iter.getRate()) {
                 foundedDeposits.add(iter);
@@ -116,7 +118,7 @@ public class DepositManager {
     }
 
     public DepositManager findDepositsByDuration(Integer duration) {
-        foundedDeposits = new LinkedList<>();
+        foundedDeposits = new ArrayList<>(10);
         for (Deposit iter : availableDeposits) {
             if (duration >= iter.getDuration()) {
                 foundedDeposits.add(iter);
@@ -126,7 +128,7 @@ public class DepositManager {
     }
 
     public DepositManager findDepositsByMinimalSumm(Integer minSumm) {
-        foundedDeposits = new LinkedList<>();
+        foundedDeposits = new ArrayList<>(10);
         for (Deposit iter : availableDeposits) {
             if (minSumm >= iter.getMinSum()) {
                 foundedDeposits.add(iter);
@@ -136,7 +138,7 @@ public class DepositManager {
     }
 
     public DepositManager findDepositsByBank(Bank bank) {
-        foundedDeposits = new LinkedList<>();
+        foundedDeposits = new ArrayList<>(10);
         for (Deposit iter : availableDeposits) {
             if (bank.equals(iter.getBank())) {
                 foundedDeposits.add(iter);
@@ -146,15 +148,11 @@ public class DepositManager {
     }
 
     public void printFoundedDeposits() {
-        for (Deposit deposit : foundedDeposits) {
-            System.out.println(deposit);
+        if (foundedDeposits != null) {
+            for (Deposit deposit : foundedDeposits) {
+                System.out.println(deposit);
+            }
         }
-        System.out.println("* * * * * * * * * * * * * * * * * * * * * * * * *");
     }
-
-
-
-
-
 
 }

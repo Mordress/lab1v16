@@ -1,10 +1,9 @@
 package com.gmail.mordress.lab1.deposits.models;
 
+import com.gmail.mordress.lab1.Commons;
 import com.gmail.mordress.lab1.banks.Bank;
 
-public abstract class Deposit implements Comparable<Deposit>{
-
-    public static final int DAYS_PER_YEAR = 365;
+public abstract class Deposit implements Comparable<Deposit> {
 
     protected String name;
 
@@ -28,25 +27,45 @@ public abstract class Deposit implements Comparable<Deposit>{
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Integer getRate() {
         return rate;
+    }
+
+    public void setRate(Integer rate) {
+        this.rate = rate;
     }
 
     public Integer getMinSum() {
         return minSum;
     }
 
+    public void setMinSum(Integer minSum) {
+        this.minSum = minSum;
+    }
+
     public Integer getDuration() {
         return duration;
+    }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 
     public Bank getBank() {
         return bank;
     }
 
-    //theorical profit
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    //theoritical profit
     public Integer getProfit() {
-        return this.getRate() * this.getMinSum() * this.getDuration() / DAYS_PER_YEAR / 100;
+        return getRate() * getMinSum() * getDuration() / Commons.DAYS_PER_YEAR / Commons.PERCENTS;
     }
 
     @Override
@@ -56,13 +75,14 @@ public abstract class Deposit implements Comparable<Deposit>{
                                 .append("\n\t").append("MINIMAL SUMM: ").append(getMinSum()).append("$")
                                 .append("\n\t").append("DURATION: ").append(getDuration()).append(" DAYS")
                                 .append("\n\t").append("BANK: ").append(getBank())
-                                .append("\n\t").append("DEFAULT PROFIT: ").append(this.getProfit()).append("$")
+                                .append("\n\t").append("DEFAULT PROFIT: ").append(getProfit()).append("$")
                                 .toString();
     }
 
     @Override
     public int compareTo(Deposit o) {
-        return this.getProfit() - o.getProfit();
+        return getProfit() - o.getProfit();
 
     }
+
 }

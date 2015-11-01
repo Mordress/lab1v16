@@ -2,12 +2,12 @@ package com.gmail.mordress.lab1.clients;
 
 public class Client {
 
-    private final String firstName;
+    private String firstName;
 
-    private final String lastName;
+    private String lastName;
 
     //How many days client can keep money at bank
-    private final Integer maxDuration;
+    private Integer maxDuration;
 
     private Integer money;
 
@@ -34,8 +34,25 @@ public class Client {
         return money;
     }
 
+    public void setMoney(Integer money) {
+        this.money = money;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setMaxDuration(Integer maxDuration) {
+        this.maxDuration = maxDuration;
+    }
+
     @Override
     public String toString() {
         return this.getFirstName() + " " + this.getLastName();
     }
+
 }
