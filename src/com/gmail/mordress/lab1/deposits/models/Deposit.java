@@ -1,6 +1,6 @@
 package com.gmail.mordress.lab1.deposits.models;
 
-import com.gmail.mordress.lab1.Commons;
+import com.gmail.mordress.lab1.helpers.Commons;
 import com.gmail.mordress.lab1.banks.Bank;
 
 import java.math.BigDecimal;

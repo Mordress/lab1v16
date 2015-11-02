@@ -5,7 +5,6 @@ import com.gmail.mordress.lab1.clients.Client;
 import com.gmail.mordress.lab1.deposits.models.Deposit;
 import com.gmail.mordress.lab1.deposits.models.ImmutableDeposit;
 import com.gmail.mordress.lab1.deposits.models.MutableDeposit;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;

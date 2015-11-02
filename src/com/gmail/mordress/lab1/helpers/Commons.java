@@ -1,4 +1,4 @@
-package com.gmail.mordress.lab1;
+package com.gmail.mordress.lab1.helpers;
 
 public class Commons {
 
