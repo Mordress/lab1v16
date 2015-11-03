@@ -1,5 +1,6 @@
 package com.gmail.mordress.lab1;
 
+import com.gmail.mordress.lab1.banks.Bank;
 import com.gmail.mordress.lab1.clients.Client;
 import com.gmail.mordress.lab1.deposits.controllers.DepositManager;
 
@@ -16,10 +17,9 @@ public class Main {
         DepositManager depositManager2 = new DepositManager(client2);
         depositManager2.printAvailableDeposits();
 
-        //depositManager1.findDepositsByBank(Bank.ALPHA_BANK).printFoundedDeposits();
-        //depositManager1.findDepositsByDuration(120).printFoundedDeposits();
-        //depositManager1.findDepositsByRate(10).printFoundedDeposits();
+        /*depositManager1.findDepositsByBank(Bank.ALPHA).printFoundedDeposits();*/
+        /*depositManager1.findDepositsByDuration(120).printFoundedDeposits();*/
+        /*depositManager1.findDepositsByRate(10).printFoundedDeposits();*/
 
     }
-
 }

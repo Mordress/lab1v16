@@ -8,7 +8,7 @@ public class Client {
 
     private String lastName;
 
-    //How many days client can keep money at bank
+    /*How many days client can keep money at bank*/
     private Integer maxDuration;
 
     private BigDecimal money;
@@ -56,5 +56,4 @@ public class Client {
     public String toString() {
         return this.getFirstName() + " " + this.getLastName();
     }
-
 }

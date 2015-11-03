@@ -16,17 +16,17 @@ public class DepositManager {
 
     static {
         allDeposits = new ArrayList<>(10);
-        allDeposits.add(new ImmutableDeposit("Basic", 12, new BigDecimal(1000), 180, Bank.ALPHA_BANK));
-        allDeposits.add(new MutableDeposit("Advanced", 6, new BigDecimal(1500), 60, Bank.ALPHA_BANK, 20, new BigDecimal(20)));
-        allDeposits.add(new MutableDeposit("AdvancedPlus", 5, new BigDecimal(2000), 90, Bank.ALPHA_BANK, 30, new BigDecimal(30)));
-        allDeposits.add(new ImmutableDeposit("Ultra", 20, new BigDecimal(1700), 120, Bank.BETA_BANK));
-        allDeposits.add(new ImmutableDeposit("UltraPlus", 18, new BigDecimal(1900), 270, Bank.BETA_BANK));
-        allDeposits.add(new MutableDeposit("Mega", 5, new BigDecimal(2200), 180, Bank.BETA_BANK, 45, new BigDecimal(50)));
-        allDeposits.add(new ImmutableDeposit("FastMoney", 23, new BigDecimal(1000), 240, Bank.GAMMA_BANK));
-        allDeposits.add(new MutableDeposit("Buisness", 5, new BigDecimal(1400), 90, Bank.GAMMA_BANK, 45, new BigDecimal(25)));
+        allDeposits.add(new ImmutableDeposit("Basic", 12, new BigDecimal(1000), 180, Bank.ALPHA));
+        allDeposits.add(new MutableDeposit("Advanced", 6, new BigDecimal(1500), 60, Bank.ALPHA, 20, new BigDecimal(20)));
+        allDeposits.add(new MutableDeposit("AdvPlus", 5, new BigDecimal(2000), 90, Bank.ALPHA, 30, new BigDecimal(30)));
+        allDeposits.add(new ImmutableDeposit("Ultra", 20, new BigDecimal(1700), 120, Bank.BETA));
+        allDeposits.add(new ImmutableDeposit("UltraPlus", 18, new BigDecimal(1900), 270, Bank.BETA));
+        allDeposits.add(new MutableDeposit("Mega", 5, new BigDecimal(2200), 180, Bank.BETA, 45, new BigDecimal(50)));
+        allDeposits.add(new ImmutableDeposit("FastMoney", 23, new BigDecimal(1000), 240, Bank.GAMMA));
+        allDeposits.add(new MutableDeposit("Buisness", 5, new BigDecimal(1400), 90, Bank.GAMMA, 45, new BigDecimal(25)));
     }
 
-    //List with available deposits for client sorted by profit(from max to min)
+    /* List with available deposits for client sorted by profit(from max to min) */
     private List<Deposit> availableDeposits;
 
     private List<Deposit> foundedDeposits;
@@ -37,13 +37,13 @@ public class DepositManager {
         this.client = client;
         availableDeposits = new ArrayList<>(10);
         for (Deposit iter : allDeposits) {
-            if (this.client.getMoney().intValue() >= iter.getMinSum().intValue() && this.client.getMaxDuration() >= iter.getDuration()) {
+            if ((client.getMoney().intValue() >= iter.getMinSum().intValue())
+                    && (client.getMaxDuration() >= iter.getDuration())) {
                 this.availableDeposits.add(iter);
             }
         }
         Collections.sort(availableDeposits);
         Collections.reverse(availableDeposits);
-
     }
 
     public static List<Deposit> getAllDeposits() {
@@ -134,5 +134,4 @@ public class DepositManager {
             }
         }
     }
-
 }
