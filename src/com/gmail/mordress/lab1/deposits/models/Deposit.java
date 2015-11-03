@@ -2,7 +2,6 @@ package com.gmail.mordress.lab1.deposits.models;
 
 import com.gmail.mordress.lab1.helpers.Commons;
 import com.gmail.mordress.lab1.banks.Bank;
-
 import java.math.BigDecimal;
 
 public abstract class Deposit implements Comparable<Deposit> {
